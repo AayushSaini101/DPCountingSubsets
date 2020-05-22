@@ -1,0 +1,53 @@
+import java.util.stream.IntStream;
+import java.util.*;
+
+//Knapsack using the memozaiation
+
+public class DP {
+	static  int [][] bl=new int[5][11+1];
+	
+	static   int fun(int l,int n[],int s) {
+	 for(int i=0;i<=l;++i) {
+		 for(int j=0;j<=s;++j) {
+			 if(i==0)
+				 bl[i][j]=0;
+			  if(j==0) {
+			 bl[i][j]=1;
+		 }
+		 }
+		
+	 }
+	  //Filling the table
+	  for(int i=1;i<=l;++i) {
+		  for(int j=1;j<=s;++j) {
+			if(n[i-1]<=j) {
+				bl[i][j]=bl[i-1][j-n[i-1]]+bl[i-1][j];
+			}
+			else
+			bl[i][j]=bl[i-1][j];
+	  }
+	  }
+	  return bl[4][11];
+		  
+			
+	}
+	
+	
+public static void main(String args[]) {
+	 
+	Scanner scan=new Scanner(System.in);
+	  int a[]= {10,1,1,1};
+	  System.out.print(fun(a.length,a,11));
+	  Arrays.sort(a);
+	/*  int b=a[0];
+	int m=IntStream.range(0, 3).filter(i -> b=a[i]).findFirst().orElse(-1);
+	   System.out.print((int)(m));
+    */
+}}		 
+	
+	
+	
+
+	
+	
+
