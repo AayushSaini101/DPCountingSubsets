@@ -34,8 +34,7 @@ public class DP {
 	
 	
 public static void main(String args[]) {
-	 
-	Scanner scan=new Scanner(System.in);
+	 Scanner scan=new Scanner(System.in);
 	  int a[]= {10,1,1,1};
 	  System.out.print(fun(a.length,a,11));
 	  Arrays.sort(a);
